@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.distribute.DistributeApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-03-26T17:25:40" hostname="UHYUNG-MacBookPro.local" time="0.163">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.example.distribute.DistributeApplicationTests" time="0.163"/>
+  <system-out><![CDATA[02:25:40.052 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Neither @ContextConfiguration nor @ContextHierarchy found for test class [DistributeApplicationTests]: using SpringBootContextLoader
+02:25:40.054 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader -- Could not detect default resource locations for test class [com.example.distribute.DistributeApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+02:25:40.054 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.distribute.DistributeApplicationTests]: DistributeApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+02:25:40.064 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using ContextCustomizers for test class [DistributeApplicationTests]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+02:25:40.094 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider -- Identified candidate component class: file [/Users/uhyunglee/Distributed-System-Capstone/distribute/build/classes/java/main/com/example/distribute/DistributeApplication.class]
+02:25:40.095 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.distribute.DistributeApplication for test class com.example.distribute.DistributeApplicationTests
+02:25:40.128 [Test worker] DEBUG org.springframework.test.context.util.TestContextSpringFactoriesUtils -- Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+02:25:40.129 [Test worker] DEBUG org.springframework.test.context.util.TestContextSpringFactoriesUtils -- Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+02:25:40.130 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using TestExecutionListeners for test class [DistributeApplicationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+02:25:40.130 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener -- Before test class: class [DistributeApplicationTests], class annotated with @DirtiesContext [false] with mode [null]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.5)
+
+2023-03-27T02:25:40.241+09:00  INFO 841 --- [    Test worker] c.e.d.DistributeApplicationTests         : Starting DistributeApplicationTests using Java 17.0.6 with PID 841 (started by uhyunglee in /Users/uhyunglee/Distributed-System-Capstone/distribute)
+2023-03-27T02:25:40.243+09:00  INFO 841 --- [    Test worker] c.e.d.DistributeApplicationTests         : No active profile set, falling back to 1 default profile: "default"
+2023-03-27T02:25:40.713+09:00  INFO 841 --- [    Test worker] c.e.d.DistributeApplicationTests         : Started DistributeApplicationTests in 0.564 seconds (process running for 1.03)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

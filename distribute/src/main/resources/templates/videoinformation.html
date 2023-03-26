@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<html>
+  <head>
+    <title>Yolo File Upload</title>
+  </head>
+
+  <body>
+    <center><h1>YOLOv5 on K3S</h1></center>
+    <center><h4 th:text="${mode} + Mode"></h4></center>
+    <center><h3>Video Information</h3></center>
+    <center> <p th:text= "'Frame width: ' + ${frameWeight}"></p></center>
+    <center> <p th:text= "'Frame height: '+ ${frameHeight}"></p></center>
+    <center> <p th:text= "'Frame count: '+ ${frameCount}"></p></center>
+    <center> <p th:text= "'FPS: '+ ${fps}"></p></center>
+    <center> <p th:text= "'Video Length: '+ ${videoLength}+'sec'"></p></center>
+    <center><h3>YOLOv5 is Ready</h3></center>
+    <center><h4>Click the Start button</h4></center>
+    <center><form action="/distribution" method="post">
+        <button type="submit">start</button>
+    </form></center>
+    <center><h4>Press the button and wait for it to finish</h4></center>
+  </body>
+</html>

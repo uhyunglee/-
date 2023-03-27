@@ -38,7 +38,7 @@ public class UploadController {
 
     @GetMapping("/mode/file")
     public String uploadFile(Model model){
-        return "file";
+        return isModeNUll("file");
     }
 
     @PostMapping("/mode/file")
@@ -58,15 +58,14 @@ public class UploadController {
         rttr.addFlashAttribute("storageExceptionMessage",e.getMessage());
         rttr.addFlashAttribute("mode", mode.getMode());
 
-        //rttr.addFlashAttribute("mode");
-        //System.out.println(mode.getMode());
-
-//        FlashMap outputFlashMap = RequestContextUtils.getOutputFlashMap(request);
-//        if (outputFlashMap != null){
-//            outputFlashMap.put("storageExceptionMessage",e);
-//        }
-
         return rw;
+    }
+
+    public String isModeNUll(String nowPage){
+        if(mode.getMode().equals("")){
+            return "redirect:/";
+        }
+        return nowPage;
     }
 
 

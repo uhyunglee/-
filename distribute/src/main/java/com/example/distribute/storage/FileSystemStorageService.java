@@ -39,6 +39,13 @@ public class FileSystemStorageService implements StorageService {
                 throw new StorageException(
                         "Cannot store file outside current directory.");
             }
+            if(!isMP4(file.getContentType())){
+                throw new StorageException("only Mp4 file can upload.");
+            }
+            if(file.getSize()>500*1024*1024){
+                throw new StorageException("file size is over 500MB");
+            }
+
             try (InputStream inputStream = file.getInputStream()) {
                 Files.copy(inputStream, destinationFile,
                         StandardCopyOption.REPLACE_EXISTING);
@@ -99,5 +106,9 @@ public class FileSystemStorageService implements StorageService {
         catch (IOException e) {
             throw new StorageException("Could not initialize storage", e);
         }
+    }
+
+    private boolean isMP4(String contentType){
+        return contentType.equals("video/mp4");
     }
 }

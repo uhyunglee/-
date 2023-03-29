@@ -1,12 +1,14 @@
 package com.example.distribute.uploadController;
 
 import com.example.distribute.Configuration.Mode;
+import com.example.distribute.Configuration.videoInformation;
 import com.example.distribute.storage.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
@@ -15,6 +17,8 @@ import org.springframework.web.servlet.view.RedirectView;
 public class UploadController {
     private final Mode mode;
     private final StorageService storageService;
+    private  String destinationFile;
+    private String videoDistributeUrl = "http://localhost:5001";
 
     @Autowired
     public UploadController(Mode mode, StorageService storageService) {
@@ -43,9 +47,23 @@ public class UploadController {
 
     @PostMapping("/mode/file")
     public String handleFileUpload(@RequestParam("file") MultipartFile file) {
-        storageService.store(file);
+        destinationFile = storageService.store(file);
+
+        return "redirect:/mode/file/videoinformation";
+    }
+
+    @GetMapping("mode/file/videoinformation")
+    public String showVideoInformation(Model model, RestTemplate restTemplate)throws  Exception{
+        model.addAttribute("mode",mode.getMode());
+        model.addAttribute("filePath", destinationFile);
+
+        videoInformation videoInformation = restTemplate.getForObject(videoDistributeUrl+"/videoinformation", com.example.distribute.Configuration.videoInformation.class);
+
+
         return "videoinformation";
     }
+
+
 
     @ExceptionHandler(StorageFileNotFoundException.class)
     public ResponseEntity<?> handleStorageFileNotFound(StorageFileNotFoundException exc) {

@@ -10,7 +10,7 @@ public class StorageProperties {
     /**
      * Folder location for storing files
      */
-    private String location = "user-dir";
+    private String location = "/home/share/nfs";
 
     public String getLocation() {
         return location;

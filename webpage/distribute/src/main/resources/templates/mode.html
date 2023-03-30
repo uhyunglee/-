@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<html>
+  <head>
+    <title>Yolo File Upload</title>
+  </head>
+
+  <body>
+    <center><h1>YOLOv5 on K3S</h1></center>
+    <hr width="100%" color="black"/>
+    <center><h3>Upload File!</h3></center>
+    <hr width="100%" color="black"/>
+
+    <center><h4>Choose Single or Multi node</h4></center>
+    <center><form action="#" th:action="@{/mode}" th:object="${mode}" method="post">
+      <br>
+      <input type='radio'  name='mode' value='single' checked = "checked" />Single
+      <input type='radio'  name='mode' value='multi' />Multi
+      <button type="submit">Submit</button>
+      <br>
+
+    </form></center>
+
+   <!-- <br><br>
+    <center><h4>Press the init button before starting</h4></center>
+    <center><form action="/init" method="post">
+      <button type="submit">INIT</button>
+    </form></center> -->
+  </body>
+</html>

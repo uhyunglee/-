@@ -57,7 +57,12 @@ public class UploadController {
         model.addAttribute("mode",mode.getMode());
         model.addAttribute("filePath", destinationFile);
 
-        videoInformation videoInformation = restTemplate.getForObject(videoDistributeUrl+"/videoinformation", com.example.distribute.Configuration.videoInformation.class);
+        videoInformation videoinformation = restTemplate.getForObject(videoDistributeUrl+"/videoinformation", com.example.distribute.Configuration.videoInformation.class);
+        model.addAttribute("frameWeight",videoinformation.frameWeight());
+        model.addAttribute("frameHeight",videoinformation.frameHeight());
+        model.addAttribute("frameCount",videoinformation.frameCount());
+        model.addAttribute("fps",videoinformation.fps());
+        model.addAttribute("videoLength",videoinformation.videoLength());
 
 
         return "videoinformation";

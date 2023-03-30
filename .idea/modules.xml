@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Distributed-System-Capstone.iml" filepath="$PROJECT_DIR$/.idea/Distributed-System-Capstone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/distribute.main.iml" filepath="$PROJECT_DIR$/.idea/modules/distribute.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/distribute.test.iml" filepath="$PROJECT_DIR$/.idea/modules/distribute.test.iml" />
     </modules>
   </component>
 </project>

@@ -18,7 +18,7 @@ public class UploadController {
     private final Mode mode;
     private final StorageService storageService;
     private  String destinationFile;
-    private String videoDistributeUrl = "http://localhost:5001";
+    private String videoDistributeUrl = "http://192.168.0.11:30500";
 
     @Autowired
     public UploadController(Mode mode, StorageService storageService) {
@@ -58,7 +58,7 @@ public class UploadController {
         model.addAttribute("filePath", destinationFile);
 
         videoInformation videoinformation = restTemplate.getForObject(videoDistributeUrl+"/videoinformation", com.example.distribute.Configuration.videoInformation.class);
-        model.addAttribute("frameWeight",videoinformation.frameWeight());
+        model.addAttribute("frameWidth",videoinformation.frameWidth());
         model.addAttribute("frameHeight",videoinformation.frameHeight());
         model.addAttribute("frameCount",videoinformation.frameCount());
         model.addAttribute("fps",videoinformation.fps());

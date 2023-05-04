@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8" xmlns:th="http://www.w3.org/1999/xhtml">
+<html>
+  <head>
+    <title>Yolo File Upload</title>
+  </head>
+
+  <body>
+    <center><h1>YOLOv5 on K3S</h1></center>
+    <center><h4 th:text="${mode} +' Mode'"></h4></center>
+    <center><h3>Success!</h3></center>
+    <center><p th:text= "'Total time: ' + ${waitTime}"></p></center>
+    <center><h4>Download Please!</h4></center>
+    <center><form action="/singledown" method="post">
+      <button type="submit">download</button>
+    </form></center>
+    <br><br>
+    <center><form action="/gotohome" method="post">
+      <button type="submit">Home</button>
+    </form></center>
+
+  </body>
+</html>

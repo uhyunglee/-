@@ -1,0 +1,45 @@
+apiVersion: apps/v1 # for versions before 1.8.0 use apps/v1beta1
+kind: Deployment
+metadata:
+  name: distributed-server-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: distributed-server
+  template:
+    metadata:
+      labels:
+        app: distributed-server
+    spec:
+      volumes:
+        - name: my-pv-storage
+          persistentVolumeClaim:
+            claimName: my-pv-claim
+      containers:
+      - name: distributed-web-server
+        image: jaehyuk00/distributed_flask:v6
+        ports:
+        - containerPort: 5001
+        volumeMounts:
+          - mountPath: "/home/share/nfs"
+            name: my-pv-storage
+        imagePullPolicy: Never
+
+      nodeSelector:
+        key: master
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: distributed-web-server-service
+spec:
+  ports:
+    - name: "5001"
+      port: 5003
+      targetPort: 5001
+      nodePort: 30500
+  selector:
+    app: distributed-server 
+  type: NodePort
+

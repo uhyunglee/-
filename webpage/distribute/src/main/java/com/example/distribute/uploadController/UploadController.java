@@ -4,6 +4,7 @@ import com.example.distribute.Configuration.Mode;
 import com.example.distribute.Configuration.videoInformation;
 import com.example.distribute.storage.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,13 +13,16 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @Controller
 public class UploadController {
     private final Mode mode;
     private final StorageService storageService;
     private  String destinationFile;
-    private String videoDistributeUrl = "http://localhost:5001";
+    private String videoDistributeUrl = "http://localhost:30600"; // 5001로 변환해야함
+
+    private float waitTime;
 
     @Autowired
     public UploadController(Mode mode, StorageService storageService) {
@@ -57,15 +61,25 @@ public class UploadController {
         model.addAttribute("mode",mode.getMode());
         model.addAttribute("filePath", destinationFile);
 
-        videoInformation videoinformation = restTemplate.getForObject(videoDistributeUrl+"/videoinformation", com.example.distribute.Configuration.videoInformation.class);
+        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(videoDistributeUrl+"/videoinformation").queryParam("fileName",destinationFile);
+        String url = builder.toUriString();
+        videoInformation videoinformation = restTemplate.getForObject(url, com.example.distribute.Configuration.videoInformation.class);
+
         model.addAttribute("frameWeight",videoinformation.frameWeight());
         model.addAttribute("frameHeight",videoinformation.frameHeight());
         model.addAttribute("frameCount",videoinformation.frameCount());
         model.addAttribute("fps",videoinformation.fps());
         model.addAttribute("videoLength",videoinformation.videoLength());
 
-
         return "videoinformation";
+    }
+
+    @GetMapping("mode/file/download")
+    public String showDownLoadPage(Model model){
+        model.addAttribute("mode", mode.getMode());
+        model.addAttribute("watiTime", waitTime);
+
+        return "download";
     }
 
 

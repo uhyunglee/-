@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yolonode1
+spec:
+  selector:
+    matchLabels:
+      run: yolonode1
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: yolonode1
+    spec:
+      volumes:
+        - name: my-pv-storage
+          persistentVolumeClaim:
+            claimName: my-pv-claim
+      containers:
+      - name: yolonode1
+        image: dlskawo0409/capston:22_11_17
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+        command: ["/bin/sh", "-ec", "while :; do echo '.'; sleep 5 ; done"]
+        volumeMounts:
+          - mountPath: "/home/share/nfs"
+            name: my-pv-storage
+
+      nodeSelector:
+        key: worker1

@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yolonode2
+spec:
+  selector:
+    matchLabels:
+      run: yolonode2
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: yolonode2
+    spec:
+      volumes:
+        - name: my-pv-storage
+          persistentVolumeClaim:
+            claimName: my-pv-claim
+      containers:
+      - name: yolonode2
+        image: dlskawo0409/capston:yolo_jetson
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+        command: ["/bin/sh", "-ec", "while :; do echo '.'; sleep 5 ; done"]
+        volumeMounts:
+          - mountPath: "/home/share/nfs"
+            name: my-pv-storage
+        resources:
+          limits:
+            nvidia.com/gpu: 1 # requesting 1 GPUs 
+
+      nodeSelector:
+        key: worker2

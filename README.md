@@ -5,10 +5,36 @@
 <img src="image/system.png">
 
 Master : rasberri pi 3 
+ 
 Node 1 : rasberri pi 4
-Node 2 : Jetson nano 4GB
-Node 3 : Jetson nano 4GB
+
+Node 2 : Jetson Nano 4GB
+
+Node 3 : Jetson Nano 4GB
 
 
-<
+<H2> Usage </H2>
+
+<H3> All node must linked with </H3>
+
+Master : main.py, dlskawo0409/spring_test:v18, jaehyuk00/distributed_flask:v105, 
+
+rasberri Pi Worker : dlskawo0409/capston:v30
+
+Jetson Worker : dlskawo0409/gpu:v13 
+
+<H3> must install </H3>
+
+docker
+
+K3s
+
+<H3> Use GPU in Kubernetes</H3>
+
+use arm K3s gpu daemon file
+
+
+
+
+
 

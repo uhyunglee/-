@@ -1,32 +1,47 @@
 
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:mvc="http://www.w3.org/1999/xlink">
+<!--<link rel="stylesheet"  href="/css/mode.css">-->
+<!--<link rel="stylesheet" href="/resources/css/mode.css"/>-->
 <meta charset="UTF-8">
+<head>
+  <link rel="stylesheet"  th:href="@{/css/mode.css}">
+  <title>Yolo File Upload</title>
+</head>
 <html>
-  <head>
-    <title>Yolo File Upload</title>
-  </head>
+
 
   <body>
     <center><h1>YOLOv5 on K3S</h1></center>
     <hr width="100%" color="black"/>
-    <center><h3>Upload File!</h3></center>
+    <center><h3>Choose Node Mode!</h3></center>
     <hr width="100%" color="black"/>
-
-    <center><h4>Choose Single or Multi node</h4></center>
+    <br>
+<!--    <center><h4>Choose Single or Multi node</h4></center>-->
+    <br>
+    <br>
+    <br>
     <center><form action="#" th:action="@{/mode}" th:object="${mode}" method="post">
       <br>
-      <input type='radio'  name='mode' value='single' checked = "checked" />Single
-      <input type='radio'  name='mode' value='multi' />Multi
+      <div class="wrapper">
+        <div class="option">
+          <input class="input" type="radio" name="mode" value="single" checked="checked">
+          <div class="btn">
+            <span class="span">Single</span>
+          </div>
+        </div>
+        <div class="option">
+          <input class="input" type="radio" name="mode" value="multi">
+          <div class="btn">
+            <span class="span">Multi</span>
+          </div>  </div>
+      </div>
+
+      <br>
+      <br>
       <button type="submit">Submit</button>
       <br>
 
     </form></center>
-
-   <!-- <br><br>
-    <center><h4>Press the init button before starting</h4></center>
-    <center><form action="/init" method="post">
-      <button type="submit">INIT</button>
-    </form></center> -->
   </body>
 </html>

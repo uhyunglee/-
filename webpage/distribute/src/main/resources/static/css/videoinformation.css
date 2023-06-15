@@ -1,0 +1,45 @@
+
+.information{
+    width: 50%;
+    float:left;
+}
+.videoCard{
+ float:right;
+ padding-right:50px;
+}
+.progressCard{
+ float:left;
+ padding-left:50px;
+}
+.card {
+ width: 300px;
+ height: 350px;
+ border-radius: 30px;
+ padding-top: 5px;
+ background: #fafafa;
+ border 3px solid;
+ box-shadow: 5px 5px 5px rgb(120, 120, 120);
+ padding:10%;
+ float:mid;
+ margin: 0 auto;
+}
+.progressBar {
+    width: 100%;
+    border:3px;
+    float:mid;
+}
+
+.progress-bars-container {
+    width: 100%;
+    height: 30px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+}
+.nodeName{
+    float:left;
+}
+.persentString{
+float:right;
+}

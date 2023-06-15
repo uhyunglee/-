@@ -1,4 +1,3 @@
-a=3
-b=5
-a=a-b if a-b>0 else 0
-print(a)
+import json
+params = json.loads("persent=0.4838709677419355")
+print(params)

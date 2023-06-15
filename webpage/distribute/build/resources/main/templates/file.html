@@ -2,10 +2,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <meta charset="UTF-8" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Yolo File Upload</title>
+  <link rel="stylesheet"  th:href="@{/css/file.css}">
+</head>
 <html>
-  <head>
-    <title>Yolo File Upload</title>
-  </head>
+
 
   <body>
     <center><h1>YOLOv5 on K3S</h1></center>
@@ -16,9 +18,16 @@
     <center><h4>Maximum file size is 500MB</h4></center>
     <center><h4 th:text="${mode} +' Mode'"></h4></center>
     <center><form method="post" action="/mode/file" enctype="multipart/form-data">
-      <input type = "file" name = "file" />
+
+      <center><h3>Threshold 를 정해주세요</h3></center>
+      <input type = "number" name = "threshold" step="0.00001"  value="0" required/>
+      <br>
+      <br>
+      <input class="fileChoose" type = "file" name = "file" required/>
       <input type = "submit"/>
+
     </form></center>
+
     <br>
     <br>
     <center><h2 th:text = "${storageExceptionMessage}"></h2></center>

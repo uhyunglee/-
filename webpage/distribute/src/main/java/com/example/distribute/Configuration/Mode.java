@@ -1,8 +1,5 @@
 package com.example.distribute.Configuration;
 
-
-
-
 public class Mode {
     private String mode="";
 

@@ -13,6 +13,7 @@ class Node:
         self.total_memory=round(mb_to_gb(cal_total(self.memory_usage*1000,int(node_info[4][:-1]))))
         self.isgpu=self.check_gpu()
         self.FLOPS=0
+        self.ip =node_info[-1]
 
     def check_gpu(self):
         output = subprocess.check_output("kubectl get nodes -l 'nvidia.com/gpu'", shell=True).decode()
@@ -29,5 +30,6 @@ class Node:
         print("memory info "+str(self.memory_usage)+"/"+str(self.total_memory)+" GB")
         print("CPU : "+str(self.isgpu))
         print("FLOPS : "+str(self.FLOPS))
+        print("ip : "+str(self.ip))
         print("-----------------------")
     

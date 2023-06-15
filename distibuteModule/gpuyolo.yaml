@@ -18,17 +18,31 @@ spec:
             claimName: my-pv-claim
       containers:
       - name: yolonode2
-        image: dlskawo0409/capston:yolo_jetson
+        image: dlskawo0409/gpu:v3
         imagePullPolicy: Never
         ports:
-        - containerPort: 80
-        command: ["/bin/sh", "-ec", "while :; do echo '.'; sleep 5 ; done"]
+        - containerPort: 5001
+        command: ["python3", ".yolo/yoloFlask.py", "--filePath", "/home/share/nfs/node1", "--save_dir", "/home/share/nfs/result", "--address", "192.168.0.11:30700"]
         volumeMounts:
           - mountPath: "/home/share/nfs"
             name: my-pv-storage
         resources:
           limits:
-            nvidia.com/gpu: 1 # requesting 1 GPUs 
+            nvidia.com/gpu: 1 # requesting 1 GPUs
 
       nodeSelector:
         key: worker2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node1yolo
+spec:
+  ports:
+    - name: "80"
+      port: 5100
+      targetPort: 5001
+      nodePort: 30800
+  selector:
+    app: node1yolo
+  type: NodePort

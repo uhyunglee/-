@@ -5,7 +5,7 @@ cal_total = lambda a,b: a//b*100
 mb_to_gb = lambda mb: mb / 1024
 
 class Node:
-    def __init__(self,name,cpu_usage,total_cpu,memory_usage,total_memory,isgpu,FLOPS):
+    def __init__(self, name, cpu_usage,total_cpu,memory_usage,total_memory,isgpu,FLOPS,ip):
         self.name=name
         self.cpu_usage=cpu_usage
         self.total_cpu=total_cpu
@@ -13,6 +13,7 @@ class Node:
         self.total_memory=total_memory
         self.isgpu=isgpu
         self.FLOPS=FLOPS
+        self.ip = ip;
         self.TT=0
         self.PT=0
         self.PCT=0
@@ -24,5 +25,6 @@ class Node:
         print("memory info "+str(self.memory_usage)+"/"+str(self.total_memory)+" GB")
         print("CPU : "+str(self.isgpu))
         print("FLOPS : "+str(self.FLOPS))
+        print("IP : " + str(self.ip))
         print("-----------------------")
     

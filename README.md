@@ -15,7 +15,7 @@ Node 3 : Jetson Nano 4GB
 
 <H2> Usage </H2>
 
-<H3> All node must linked with </H3>
+<H3> All node must linked with one router </H3>
 
 Master : main.py, dlskawo0409/spring_test:v18, jaehyuk00/distributed_flask:v105, 
 
@@ -32,6 +32,8 @@ K3s
 <H3> Use GPU in Kubernetes</H3>
 
 use arm K3s gpu daemon file
+
+
 
 
 

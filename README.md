@@ -33,9 +33,8 @@ K3s
 
 use arm K3s gpu daemon file
 
-
-<img width="80%" src="![ezgif com-video-to-gif](https://github.com/uhyunglee/Distributed-System-Capstone/assets/90461449/1122333f-148f-4f72-9e65-de6de189afe2)
-"/>
+<H2>Result</H2>
+<img width="80%" src="ezgif.com-video-to-gif.gif"/>
 
 
 

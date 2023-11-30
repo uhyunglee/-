@@ -34,7 +34,9 @@ K3s
 use arm K3s gpu daemon file
 
 <H2>Result</H2>
-<img width="80%" src="ezgif.com-video-to-gif.gif"/>
+<img src="image/result.png">
+<img src="image/image1.png">
+<img src="image/image2.png">
 
 
 
